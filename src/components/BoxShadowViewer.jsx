@@ -1,6 +1,7 @@
 import { css } from "@acab/ecsstatic";
 import { useState } from "react";
 import { Link } from "react-router";
+import { FormWrapper, Form, FormControl } from "./FormElements";
 import Box from "./Box";
 
 export default function BoxShadowViewer() {
@@ -17,10 +18,10 @@ export default function BoxShadowViewer() {
   } ${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${shadowColor}`;
 
   return (
-    <div className={wrapper}>
+    <FormWrapper>
       <Box style={{ border, boxShadow }} />
-      <form className={form}>
-        <div className={control}>
+      <Form>
+        <FormControl>
           <label htmlFor="inset">inset</label>
           <input
             type="checkbox"
@@ -28,8 +29,8 @@ export default function BoxShadowViewer() {
             value={inset}
             onChange={(e) => setInset(!inset)}
           />
-        </div>
-        <div className={control}>
+        </FormControl>
+        <FormControl>
           <label htmlFor="shadow-color">Shadow color</label>
           <input
             type="color"
@@ -37,8 +38,8 @@ export default function BoxShadowViewer() {
             value={shadowColor}
             onChange={(e) => setShadowColor(e.target.value)}
           />
-        </div>
-        <div className={control}>
+        </FormControl>
+        <FormControl>
           <label htmlFor="offset-x">horizontal offset (in pixels)</label>
           <input
             type="text"
@@ -47,8 +48,8 @@ export default function BoxShadowViewer() {
             value={offsetX}
             onChange={(e) => setOffsetX(e.target.value)}
           />
-        </div>
-        <div className={control}>
+        </FormControl>
+        <FormControl>
           <label htmlFor="offset-y">vertical offset (in pixels)</label>
           <input
             type="text"
@@ -57,8 +58,8 @@ export default function BoxShadowViewer() {
             value={offsetY}
             onChange={(e) => setOffsetY(e.target.value)}
           />
-        </div>
-        <div className={control}>
+        </FormControl>
+        <FormControl>
           <label htmlFor="blur-radius">blur radius (in pixels)</label>
           <input
             type="text"
@@ -67,8 +68,8 @@ export default function BoxShadowViewer() {
             value={blurRadius}
             onChange={(e) => setBlurRadius(e.target.value)}
           />
-        </div>
-        <div className={control}>
+        </FormControl>
+        <FormControl>
           <label htmlFor="spread-radius">spread radius (in pixels)</label>
           <input
             type="text"
@@ -77,31 +78,14 @@ export default function BoxShadowViewer() {
             value={spreadRadius}
             onChange={(e) => setSpreadRadius(e.target.value)}
           />
-        </div>
-      </form>
+        </FormControl>
+      </Form>
       <p>
         <code>box-shadow: {boxShadow};</code>
       </p>
       <p>
         <Link to="/">Back to index</Link>
       </p>
-    </div>
+    </FormWrapper>
   );
 }
-
-const wrapper = css`
-  @media (min-width: 50rem) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-`;
-
-const form = css`
-  padding-block: 3rem;
-`;
-
-const control = css`
-  margin-bottom: 0.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
