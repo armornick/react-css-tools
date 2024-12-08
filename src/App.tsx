@@ -4,6 +4,7 @@ import LinearGradientViewer from "./components/LinearGradientViewer";
 import RadialGradientViewer from "./components/RadialGradientViewer";
 import ConicGradientViewer from "./components/ConicGradientViewer";
 import BoxShadowViewer from "./components/BoxShadowViewer";
+import ClipPathTester from "./components/ClipPathTester";
 
 function Layout() {
   return (
@@ -35,6 +36,9 @@ function IndexPage() {
         <li>
           <Link to="/box-shadow">Box Shadow Viewer</Link>
         </li>
+        <li>
+          <Link to="/clip-path">Clip Path Tester</Link>
+        </li>
       </ul>
     </nav>
   );
@@ -50,6 +54,7 @@ function App() {
           <Route path="radial-gradient" element={<RadialGradientViewer />} />
           <Route path="conic-gradient" element={<ConicGradientViewer />} />
           <Route path="box-shadow" element={<BoxShadowViewer />} />
+          <Route path="clip-path" element={<ClipPathTester />} />
         </Route>
       </Routes>
     </BrowserRouter>

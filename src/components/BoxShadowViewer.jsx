@@ -42,9 +42,8 @@ export default function BoxShadowViewer() {
         <FormControl>
           <label htmlFor="offset-x">horizontal offset (in pixels)</label>
           <input
-            type="text"
-            pattern="-?\d+"
             id="offset-x"
+            type="number"
             value={offsetX}
             onChange={(e) => setOffsetX(e.target.value)}
           />
@@ -52,9 +51,8 @@ export default function BoxShadowViewer() {
         <FormControl>
           <label htmlFor="offset-y">vertical offset (in pixels)</label>
           <input
-            type="text"
-            pattern="-?\d+"
             id="offset-y"
+            type="number"
             value={offsetY}
             onChange={(e) => setOffsetY(e.target.value)}
           />
@@ -62,9 +60,8 @@ export default function BoxShadowViewer() {
         <FormControl>
           <label htmlFor="blur-radius">blur radius (in pixels)</label>
           <input
-            type="text"
-            pattern="-?\d+"
             id="blur-radius"
+            type="number"
             value={blurRadius}
             onChange={(e) => setBlurRadius(e.target.value)}
           />
@@ -72,9 +69,8 @@ export default function BoxShadowViewer() {
         <FormControl>
           <label htmlFor="spread-radius">spread radius (in pixels)</label>
           <input
-            type="text"
-            pattern="-?\d+"
             id="spread-radius"
+            type="number"
             value={spreadRadius}
             onChange={(e) => setSpreadRadius(e.target.value)}
           />
