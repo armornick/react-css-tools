@@ -1,15 +1,21 @@
 import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router";
-import styles from "./App.module.css";
 import LinearGradientViewer from "./components/LinearGradientViewer";
 import RadialGradientViewer from "./components/RadialGradientViewer";
+import { css } from "@acab/ecsstatic";
 
 function Layout() {
   return (
-    <main className={styles.wrapper}>
+    <main className={wrapper}>
       <Outlet />
     </main>
   );
 }
+
+const wrapper = css`
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 4px 8px;
+`;
 
 function IndexPage() {
   return (
