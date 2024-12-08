@@ -1,29 +1,15 @@
 import { css } from "@acab/ecsstatic";
 import { useState } from "react";
 import { Link } from "react-router";
+import { useColorList } from "../hooks/use-color-list";
 import { Button, ButtonGroup } from "./Button";
 import Box from "./Box";
 
 const DEFAULT_COLOR = "#FF0000";
 
 export default function RadialGradientViewer() {
-  const [colors, setColors] = useState(["#e66465", "#9198e5"]);
-
-  const changeColor = (index, value) => {
-    const nextColors = [...colors];
-    nextColors[index] = value;
-    setColors(nextColors);
-  };
-
-  const addColorStop = () => {
-    setColors([...colors, DEFAULT_COLOR]);
-  };
-
-  const removeColorStop = () => {
-    const nextColors = [...colors];
-    nextColors.pop();
-    setColors(nextColors);
-  };
+  const { colors, changeColor, removeColorStop, addColorStop } =
+    useColorList(DEFAULT_COLOR);
 
   const backgroundImage = `radial-gradient(${colors.join(", ")})`;
 
