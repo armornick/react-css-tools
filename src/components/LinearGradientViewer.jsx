@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import { Button, ButtonGroup } from "./Button";
 import Box from "./Box";
 import styles from "./LinearGradientViewer.module.css";
@@ -72,6 +73,9 @@ export default function LinearGradientViewer() {
       </section>
       <p>
         <code>{backgroundImage}</code>
+      </p>
+      <p>
+        <Link to="/">Back to index</Link>
       </p>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import styles from "./RadialGradientViewer.module.css";
 import { Button, ButtonGroup } from "./Button";
 import Box from "./Box";
@@ -48,6 +49,9 @@ export default function RadialGradientViewer() {
       </section>
       <p>
         <code>{backgroundImage}</code>
+      </p>
+      <p>
+        <Link to="/">Back to index</Link>
       </p>
     </div>
   );
