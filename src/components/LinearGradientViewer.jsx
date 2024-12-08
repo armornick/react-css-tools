@@ -30,8 +30,8 @@ export default function LinearGradientViewer() {
           <input
             type="checkbox"
             id="use-angles"
-            value={String(useAngle)}
-            onChange={(e) => setUseAngle(Boolean(e.target.value))}
+            value={useAngle}
+            onChange={(e) => setUseAngle(!useAngle)}
           />
         </label>
         <div className={control}>
@@ -39,6 +39,7 @@ export default function LinearGradientViewer() {
           <input
             type="number"
             id="angle"
+            disabled={!useAngle}
             min={0}
             max={360}
             value={angle}
