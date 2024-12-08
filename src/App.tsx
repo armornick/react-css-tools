@@ -1,6 +1,7 @@
 import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router";
 import LinearGradientViewer from "./components/LinearGradientViewer";
 import RadialGradientViewer from "./components/RadialGradientViewer";
+import ConicGradientViewer from "./components/ConicGradientViewer";
 import { css } from "@acab/ecsstatic";
 
 function Layout() {
@@ -27,6 +28,9 @@ function IndexPage() {
         <li>
           <Link to="/radial-gradient">Radial Gradient Viewer</Link>
         </li>
+        <li>
+          <Link to="/conic-gradient">Conic Gradient Viewer</Link>
+        </li>
       </ul>
     </nav>
   );
@@ -40,6 +44,7 @@ function App() {
           <Route index element={<IndexPage />} />
           <Route path="linear-gradient" element={<LinearGradientViewer />} />
           <Route path="radial-gradient" element={<RadialGradientViewer />} />
+          <Route path="conic-gradient" element={<ConicGradientViewer />} />
         </Route>
       </Routes>
     </BrowserRouter>

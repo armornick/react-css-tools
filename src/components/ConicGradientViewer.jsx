@@ -7,14 +7,14 @@ import Box from "./Box";
 
 const DEFAULT_COLOR = "#FF0000";
 
-export default function LinearGradientViewer() {
+export default function ConicGradientViewer() {
   const { colors, changeColor, removeColorStop, addColorStop } =
     useColorList(DEFAULT_COLOR);
   const [useAngle, setUseAngle] = useState(false);
   const [angle, setAngle] = useState(0);
 
-  const backgroundImage = `linear-gradient(${
-    useAngle && !isNaN(angle) ? `${angle}deg, ` : ""
+  const backgroundImage = `conic-gradient(${
+    useAngle && !isNaN(angle) ? `from ${angle}deg, ` : ""
   }${colors.join(", ")})`;
 
   return (
