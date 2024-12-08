@@ -19,7 +19,11 @@ export default function LinearGradientViewer() {
     setColors([...colors, DEFAULT_COLOR]);
   };
 
-  const removeColorStop = () => {};
+  const removeColorStop = () => {
+    const nextColors = [...colors];
+    nextColors.pop();
+    setColors(nextColors);
+  };
 
   const backgroundImage = `linear-gradient(${
     useAngle && !isNaN(angle) ? `${angle}deg, ` : ""
