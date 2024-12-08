@@ -1,0 +1,28 @@
+.wrapper {
+}
+
+.box {
+  --size: 20rem;
+  width: var(--size);
+  height: var(--size);
+  margin-bottom: 2rem;
+}
+
+.gradientForm {
+  padding-block: 3rem;
+
+  & > .control {
+    margin-bottom: 0.5rem;
+  }
+
+  label {
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 50rem) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
