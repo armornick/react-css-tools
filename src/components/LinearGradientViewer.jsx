@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, ButtonGroup } from "./Button";
 import styles from "./LinearGradientViewer.module.css";
 
 const DEFAULT_COLOR = "#FF0000";
@@ -8,7 +9,7 @@ export default function LinearGradientViewer() {
   const [useAngle, setUseAngle] = useState(false);
   const [angle, setAngle] = useState(0);
 
-  const changeColor = (index: number, value: string) => {
+  const changeColor = (index, value) => {
     const nextColors = [...colors];
     nextColors[index] = value;
     setColors(nextColors);
@@ -28,10 +29,10 @@ export default function LinearGradientViewer() {
     <div className={styles.wrapper}>
       <div className={styles.box} style={{ backgroundImage }}></div>
       <section className={styles.gradientForm}>
-        <div className={styles.control}>
-          <button onClick={addColorStop}>Add color stop</button>
-          <button onClick={removeColorStop}>Remove color stop</button>
-        </div>
+        <ButtonGroup className={styles.control}>
+          <Button onClick={addColorStop}>Add color stop</Button>
+          <Button onClick={removeColorStop}>Remove color stop</Button>
+        </ButtonGroup>
         {colors.map((color, index) => (
           <div key={`color-${index}`} className={styles.control}>
             <label>{`color stop ${index + 1}`}</label>

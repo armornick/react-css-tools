@@ -1,0 +1,17 @@
+.button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: transparent;
+  color: white;
+  background-color: hsl(224, 85%, 50%);
+
+  &:hover {
+    background-color: hsl(224, 85%, 40%);
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5em;
+}
