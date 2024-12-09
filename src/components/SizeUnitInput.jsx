@@ -21,7 +21,11 @@ export default function SizeUnitInput({ update, id, ...delegated }) {
         onChange={(e) => setValue(e.target.value)}
         {...delegated}
       />
-      <select value={unit} onChange={(e) => setUnit(e.target.value)}>
+      <select
+        id={`${id}-unit`}
+        value={unit}
+        onChange={(e) => setUnit(e.target.value)}
+      >
         {UNITS.map((option) => (
           <option key={option} value={option}>
             {option}
