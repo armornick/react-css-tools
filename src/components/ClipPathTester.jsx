@@ -174,7 +174,7 @@ function XYWHFormControls({ update }) {
   return (
     <>
       <FormControl>
-        <label htmlFor="xywh-x">x</label>
+        <label htmlFor="xywh-x">horizontal position</label>
         <input
           id="xywh-x"
           type="number"
@@ -183,7 +183,7 @@ function XYWHFormControls({ update }) {
         />
       </FormControl>
       <FormControl>
-        <label htmlFor="xywh-y">y</label>
+        <label htmlFor="xywh-y">vertical position</label>
         <input
           id="xywh-y"
           type="number"
