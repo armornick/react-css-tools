@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { FormWrapper, Form, FormControl } from "./FormElements";
 import Box from "./Box";
+import SizeUnitInput from "./SizeUnitInput";
 
 const CLIP_PATH_SHAPES = {
   inset: InsetFormControls,
@@ -15,7 +16,7 @@ const CLIP_PATH_SHAPES = {
 
 export default function ClipPathTester() {
   const [shape, setShape] = useState("inset");
-  const [clipPath, setClipPath] = useState("inset(100px 50px)");
+  const [clipPath, setClipPath] = useState("");
 
   const FormControls = CLIP_PATH_SHAPES[shape];
   const backgroundColor = "rebeccapurple";
@@ -58,7 +59,7 @@ function InsetFormControls({ update }) {
   const [left, setLeft] = useState(50);
 
   useEffect(() => {
-    const inset = `inset(${top}px ${right}px ${bottom}px ${left}px)`;
+    const inset = `inset(${top} ${right} ${bottom} ${left})`;
     update(inset);
   }, [top, right, bottom, left]);
 
@@ -66,39 +67,19 @@ function InsetFormControls({ update }) {
     <>
       <FormControl>
         <label htmlFor="inset-top">top</label>
-        <input
-          id="inset-top"
-          type="number"
-          value={top}
-          onChange={(e) => setTop(e.target.value)}
-        />
+        <SizeUnitInput id="inset-top" update={setTop} />
       </FormControl>
       <FormControl>
         <label htmlFor="inset-right">right</label>
-        <input
-          id="inset-right"
-          type="number"
-          value={right}
-          onChange={(e) => setRight(e.target.value)}
-        />
+        <SizeUnitInput id="inset-right" update={setRight} />
       </FormControl>
       <FormControl>
         <label htmlFor="inset-bottom">bottom</label>
-        <input
-          id="inset-bottom"
-          type="number"
-          value={bottom}
-          onChange={(e) => setBottom(e.target.value)}
-        />
+        <SizeUnitInput id="inset-bottom" update={setBottom} />
       </FormControl>
       <FormControl>
         <label htmlFor="inset-left">left</label>
-        <input
-          id="inset-left"
-          type="number"
-          value={left}
-          onChange={(e) => setLeft(e.target.value)}
-        />
+        <SizeUnitInput id="inset-left" update={setLeft} />
       </FormControl>
     </>
   );
@@ -108,7 +89,7 @@ function CircleFormControls({ update }) {
   const [radius, setRadius] = useState(50);
 
   useEffect(() => {
-    const circle = `circle(${radius}px)`;
+    const circle = `circle(${radius})`;
     update(circle);
   }, [radius]);
 
@@ -116,12 +97,7 @@ function CircleFormControls({ update }) {
     <>
       <FormControl>
         <label htmlFor="radius">radius</label>
-        <input
-          id="radius"
-          type="number"
-          value={radius}
-          onChange={(e) => setRadius(e.target.value)}
-        />
+        <SizeUnitInput id="radius" update={setRadius} />
       </FormControl>
     </>
   );
@@ -132,7 +108,7 @@ function EllipseFormControls({ update }) {
   const [radiusY, setRadiusY] = useState(50);
 
   useEffect(() => {
-    const ellipse = `ellipse(${radiusX}px ${radiusY}px)`;
+    const ellipse = `ellipse(${radiusX} ${radiusY})`;
     update(ellipse);
   }, [radiusX, radiusY]);
 
@@ -140,21 +116,11 @@ function EllipseFormControls({ update }) {
     <>
       <FormControl>
         <label htmlFor="radiusx">radius (horizontal)</label>
-        <input
-          id="radiusx"
-          type="number"
-          value={radiusX}
-          onChange={(e) => setRadiusX(e.target.value)}
-        />
+        <SizeUnitInput id="radiusx" update={setRadiusX} />
       </FormControl>
       <FormControl>
         <label htmlFor="radiusy">radius (vertical)</label>
-        <input
-          id="radiusy"
-          type="number"
-          value={radiusY}
-          onChange={(e) => setRadiusY(e.target.value)}
-        />
+        <SizeUnitInput id="radiusy" update={setRadiusY} />
       </FormControl>
     </>
   );
@@ -167,7 +133,7 @@ function XYWHFormControls({ update }) {
   const [height, setHeight] = useState(50);
 
   useEffect(() => {
-    const xywh = `xywh(${x}px ${y}px ${width}px ${height}px)`;
+    const xywh = `xywh(${x} ${y} ${width} ${height})`;
     update(xywh);
   }, [x, y, width, height]);
 
@@ -175,39 +141,19 @@ function XYWHFormControls({ update }) {
     <>
       <FormControl>
         <label htmlFor="xywh-x">horizontal position</label>
-        <input
-          id="xywh-x"
-          type="number"
-          value={x}
-          onChange={(e) => setX(e.target.value)}
-        />
+        <SizeUnitInput id="xywh-x" update={setX} />
       </FormControl>
       <FormControl>
         <label htmlFor="xywh-y">vertical position</label>
-        <input
-          id="xywh-y"
-          type="number"
-          value={y}
-          onChange={(e) => setY(e.target.value)}
-        />
+        <SizeUnitInput id="xywh-y" update={setY} />
       </FormControl>
       <FormControl>
         <label htmlFor="xywh-width">width</label>
-        <input
-          id="xywh-width"
-          type="number"
-          value={width}
-          onChange={(e) => setWidth(e.target.value)}
-        />
+        <SizeUnitInput id="xywh-width" update={setWidth} />
       </FormControl>
       <FormControl>
         <label htmlFor="xywh-height">height</label>
-        <input
-          id="xywh-height"
-          type="number"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-        />
+        <SizeUnitInput id="xywh-height" update={setHeight} />
       </FormControl>
     </>
   );
