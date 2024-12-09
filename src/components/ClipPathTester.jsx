@@ -10,7 +10,7 @@ const CLIP_PATH_SHAPES = {
   circle: CircleFormControls,
   ellipse: EllipseFormControls,
   //   polygon: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
-  //   rect: RectFormControls,
+  rect: RectFormControls,
   xywh: XYWHFormControls,
 };
 
@@ -121,6 +121,39 @@ function EllipseFormControls({ update }) {
       <FormControl>
         <label htmlFor="radiusy">radius (vertical)</label>
         <SizeUnitInput id="radiusy" update={setRadiusY} />
+      </FormControl>
+    </>
+  );
+}
+
+function RectFormControls({ update }) {
+  const [top, setTop] = useState(100);
+  const [right, setRight] = useState(50);
+  const [bottom, setBottom] = useState(100);
+  const [left, setLeft] = useState(50);
+
+  useEffect(() => {
+    const inset = `rect(${top} ${right} ${bottom} ${left})`;
+    update(inset);
+  }, [top, right, bottom, left]);
+
+  return (
+    <>
+      <FormControl>
+        <label htmlFor="rect-top">top</label>
+        <SizeUnitInput id="rect-top" update={setTop} />
+      </FormControl>
+      <FormControl>
+        <label htmlFor="rect-right">right</label>
+        <SizeUnitInput id="rect-right" update={setRight} />
+      </FormControl>
+      <FormControl>
+        <label htmlFor="rect-bottom">bottom</label>
+        <SizeUnitInput id="rect-bottom" update={setBottom} />
+      </FormControl>
+      <FormControl>
+        <label htmlFor="rect-left">left</label>
+        <SizeUnitInput id="rect-left" update={setLeft} />
       </FormControl>
     </>
   );
