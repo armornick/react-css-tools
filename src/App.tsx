@@ -1,5 +1,6 @@
 import { css } from "@acab/ecsstatic";
 import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router";
+import { ListView, ListViewItem } from "./components/ListView";
 import LinearGradientViewer from "./components/LinearGradientViewer";
 import RadialGradientViewer from "./components/RadialGradientViewer";
 import ConicGradientViewer from "./components/ConicGradientViewer";
@@ -23,26 +24,42 @@ const wrapper = css`
 function IndexPage() {
   return (
     <nav>
-      <ul>
-        <li>
+      <ListView>
+        <ListViewItem className={listViewItem}>
           <Link to="/linear-gradient">Linear Gradient Viewer</Link>
-        </li>
-        <li>
+        </ListViewItem>
+        <ListViewItem className={listViewItem}>
           <Link to="/radial-gradient">Radial Gradient Viewer</Link>
-        </li>
-        <li>
+        </ListViewItem>
+        <ListViewItem className={listViewItem}>
           <Link to="/conic-gradient">Conic Gradient Viewer</Link>
-        </li>
-        <li>
+        </ListViewItem>
+        <ListViewItem className={listViewItem}>
           <Link to="/box-shadow">Box Shadow Viewer</Link>
-        </li>
-        <li>
+        </ListViewItem>
+        <ListViewItem className={listViewItem}>
           <Link to="/clip-path">Clip Path Tester</Link>
-        </li>
-      </ul>
+        </ListViewItem>
+      </ListView>
     </nav>
   );
 }
+
+const listViewItem = css`
+  padding: 0;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 1rem 2rem;
+    border-radius: inherit;
+
+    &:hover {
+      background-color: hsl(0deg 0% 90%);
+    }
+  }
+`;
 
 function App() {
   return (
