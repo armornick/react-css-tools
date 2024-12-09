@@ -20,7 +20,6 @@ export default function ClipPathTester() {
 
   const FormControls = CLIP_PATH_SHAPES[shape];
   const backgroundColor = "rebeccapurple";
-  //   const clipPath = CLIP_PATH_SHAPES[shape];
 
   return (
     <FormWrapper>
