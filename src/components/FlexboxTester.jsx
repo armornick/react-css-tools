@@ -45,8 +45,9 @@ export default function FlexboxTester() {
 	const [alignItems, setAlignItems] = useState("stretch");
 
 	const flexStyles = {
-		display: "flex",
 		border: "1px solid black",
+		overflow: "auto", // scrollbars when many boxes
+		display: "flex",
 		flexWrap: wrap,
 		flexDirection: direction,
 		justifyContent,
